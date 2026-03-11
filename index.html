@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Repositorio: Mi Tuttifruti</title>
+    <title>Repositorio: Herramientas Interactivas</title>
     <style>
         :root {
             --primary: #4f46e5;
@@ -48,9 +48,8 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Contenedor de Filtros */
         .controls-container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto 3rem auto;
             display: flex;
             flex-direction: column;
@@ -97,7 +96,7 @@
             border: 1px solid #cbd5e1;
             padding: 0.4rem 1rem;
             border-radius: 99px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             cursor: pointer;
             transition: all 0.2s ease;
             color: var(--text-muted);
@@ -142,7 +141,7 @@
 
         .card-image-container {
             width: 100%;
-            height: 200px;
+            height: 160px;
             background: #cbd5e1;
             overflow: hidden;
         }
@@ -161,32 +160,36 @@
         }
 
         .card-title {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             font-weight: 700;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
             color: var(--text-main);
         }
 
         .card-description {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-muted);
             margin-bottom: 1.25rem;
-            min-height: 4.5em;
+            min-height: 4em;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
+            gap: 0.4rem;
+            margin-bottom: 1.25rem;
         }
 
         .tag {
             background: rgba(79, 70, 229, 0.1);
             color: var(--primary);
-            padding: 0.25rem 0.75rem;
+            padding: 0.2rem 0.6rem;
             border-radius: 99px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
         }
 
@@ -196,11 +199,12 @@
             text-align: center;
             background: var(--primary);
             color: white;
-            padding: 0.75rem;
+            padding: 0.7rem;
             border-radius: 10px;
             text-decoration: none;
             font-weight: 600;
             transition: background 0.2s;
+            font-size: 0.9rem;
         }
 
         .btn:hover {
@@ -227,43 +231,135 @@
         
         <div class="controls-container">
             <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Buscar por título o palabra clave...">
+                <input type="text" id="searchInput" placeholder="Buscar por título, asignatura o descripción...">
             </div>
             <div class="tag-filters" id="tagFilters">
                 <button class="filter-btn active" data-filter="all">Todos</button>
-                <button class="filter-btn" data-filter="Primaria">Primaria</button>
-                <button class="filter-btn" data-filter="ESO">ESO</button>
-                <button class="filter-btn" data-filter="Lengua">Lengua</button>
+                <!-- Etiquetas generadas dinámicamente -->
             </div>
         </div>
     </header>
 
     <main id="appGrid" class="grid">
-        <!-- Contenido dinámico -->
+        <!-- Tarjetas dinámicas -->
     </main>
 
     <script>
         const data = [
             {
                 titulo: "Mi Tuttifruti",
-                descripcion: "Es el juego tradicional del \"Tutifruti\" que consiste en pensar en palabras de distintos temas que empiecen por una misma letra.",
-                etapa: "Primaria / ESO",
+                descripcion: "Juego tradicional de pensar palabras que empiecen por una letra específica para distintas categorías.",
+                etapa: "Primaria, ESO",
                 asignatura: "Lengua",
                 enlace: "https://juanmale14.github.io/juego-tutti-fruti/",
                 imagen: "https://images.unsplash.com/photo-1543362906-acfc16c623a2?w=800"
+            },
+            {
+                titulo: "Atrapa el 10: Derivadas e Integrales",
+                descripcion: "Aplicación interactiva para el repaso de conceptos de análisis matemático.",
+                etapa: "Bachillerato",
+                asignatura: "Matemáticas",
+                enlace: "https://davidfunesmat.github.io/Atrapa-el-10-derivadas-e-integrales/",
+                imagen: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800"
+            },
+            {
+                titulo: "Mente Activa",
+                descripcion: "Programación de estimulación cognitiva para trabajar dimensiones del desarrollo cognitivo.",
+                etapa: "Ciclos Formativos",
+                asignatura: "Proyecto Intermodular",
+                enlace: "https://sites.google.com/g.educaand.es/estimulacioncognitiva/inicio",
+                imagen: "https://images.unsplash.com/photo-1507413245164-6160d8298b31?w=800"
+            },
+            {
+                titulo: "Logística Master Chef",
+                descripcion: "Simulación de almacenamiento correcto de materias primas en cocina.",
+                etapa: "Ciclos Formativos",
+                asignatura: "Preelaboración y Conservación",
+                enlace: "http://juegocursoaprovisionamientocorrecto.my.canva.site/",
+                imagen: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800"
+            },
+            {
+                titulo: "Atrapa los 10 puntos",
+                descripcion: "Juego de repaso de funciones para matemáticas de bachillerato.",
+                etapa: "Bachillerato",
+                asignatura: "Matemáticas",
+                enlace: "https://sites.google.com/g.educaand.es/atrapa-los-10-puntos?usp=sharing",
+                imagen: "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800"
+            },
+            {
+                titulo: "¿Quieres ser millonario? (Derivadas)",
+                descripcion: "Concurso interactivo para afianzar conocimientos sobre derivadas y sus aplicaciones.",
+                etapa: "Bachillerato",
+                asignatura: "Matemáticas",
+                enlace: "https://sites.google.com/g.educaand.es/millonario-esther/inicio",
+                imagen: "https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800"
+            },
+            {
+                titulo: "Trivial Multidisciplinar",
+                descripcion: "Juego por equipos que mezcla historia, geografía, inglés, música y lengua.",
+                etapa: "ESO",
+                asignatura: "Multidisciplinar",
+                enlace: "#",
+                imagen: "https://images.unsplash.com/photo-1606326666490-45757474e788?w=800"
+            },
+            {
+                titulo: "Desafío Contable",
+                descripcion: "Pasapalabra interactivo sobre el cuadro de cuentas de PYMES.",
+                etapa: "Ciclos Formativos",
+                asignatura: "Técnica Contable",
+                enlace: "https://sites.google.com/g.educaand.es/juego-de-prueba-contabilidad/inicio",
+                imagen: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800"
+            },
+            {
+                titulo: "El Surtido: Millonario",
+                descripcion: "Juego de 15 preguntas sobre el surtido de productos en un punto de venta.",
+                etapa: "Ciclos Formativos",
+                asignatura: "Gestión de Productos",
+                enlace: "https://sites.google.com/g.educaand.es/surtido-de-productos/inicio",
+                imagen: "https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?w=800"
             }
         ];
 
         const grid = document.getElementById('appGrid');
         const searchInput = document.getElementById('searchInput');
-        const filterBtns = document.querySelectorAll('.filter-btn');
+        const tagFilters = document.getElementById('tagFilters');
         let currentFilter = 'all';
+
+        // Extraer etiquetas únicas para el buscador
+        function setupFilters() {
+            const stages = new Set();
+            data.forEach(item => {
+                item.etapa.split(',').forEach(s => stages.add(s.trim()));
+            });
+            
+            stages.forEach(stage => {
+                if(stage === "all") return;
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn';
+                btn.textContent = stage;
+                btn.dataset.filter = stage;
+                btn.onclick = () => {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentFilter = stage;
+                    filterData();
+                };
+                tagFilters.appendChild(btn);
+            });
+
+            // Botón "Todos"
+            tagFilters.querySelector('[data-filter="all"]').onclick = (e) => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                currentFilter = 'all';
+                filterData();
+            };
+        }
 
         function renderCards(items) {
             grid.innerHTML = '';
-            
             if (items.length === 0) {
-                grid.innerHTML = '<div class="no-results">No se han encontrado herramientas con esos criterios.</div>';
+                grid.innerHTML = '<div class="no-results">No se han encontrado herramientas.</div>';
                 return;
             }
 
@@ -282,7 +378,7 @@
                             <span class="tag">${item.asignatura}</span>
                         </div>
                         <div class="card-footer">
-                            <a href="${item.enlace}" target="_blank" class="btn">Abrir Aplicación</a>
+                            <a href="${item.enlace}" target="_blank" class="btn">Abrir Recurso</a>
                         </div>
                     </div>
                 `;
@@ -291,38 +387,23 @@
         }
 
         function filterData() {
-            const searchTerm = searchInput.value.toLowerCase();
-            
+            const term = searchInput.value.toLowerCase();
             const filtered = data.filter(item => {
-                const matchesSearch = item.titulo.toLowerCase().includes(searchTerm) || 
-                                    item.descripcion.toLowerCase().includes(searchTerm);
-                
-                const matchesTag = currentFilter === 'all' || 
-                                 item.etapa.includes(currentFilter) || 
-                                 item.asignatura.includes(currentFilter);
-                
-                return matchesSearch && matchesTag;
+                const matchesTerm = item.titulo.toLowerCase().includes(term) || 
+                                   item.asignatura.toLowerCase().includes(term) ||
+                                   item.descripcion.toLowerCase().includes(term);
+                const matchesTag = currentFilter === 'all' || item.etapa.includes(currentFilter);
+                return matchesTerm && matchesTag;
             });
-
             renderCards(filtered);
         }
 
-        // Eventos para los botones de etiqueta
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                currentFilter = btn.getAttribute('data-filter');
-                filterData();
-            });
-        });
-
-        // Evento para el buscador de texto
         searchInput.addEventListener('input', filterData);
 
-        // Inicialización
-        window.onload = () => renderCards(data);
-
+        window.onload = () => {
+            setupFilters();
+            renderCards(data);
+        };
     </script>
 </body>
 </html>
